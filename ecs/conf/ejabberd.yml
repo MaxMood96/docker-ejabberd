@@ -28,6 +28,7 @@ define_macro:
   PORT_TURN_MAX: 50099
   PORT_MQTT: 1883
   PORT_PROXY65: 7777
+  STARTTLS_REQUIRED: true
 
 hosts:
   - HOST
@@ -54,7 +55,7 @@ listen:
     max_stanza_size: 262144
     shaper: c2s_shaper
     access: c2s
-    starttls_required: true
+    starttls_required: STARTTLS_REQUIRED
   -
     port: PORT_C2S_TLS
     ip: "::"
@@ -80,8 +81,8 @@ listen:
       /bosh: mod_bosh
       /captcha: ejabberd_captcha
       /upload: mod_http_upload
-      /ws: ejabberd_http_ws
       /oauth: ejabberd_oauth
+      /websocket: ejabberd_http_ws
   -
     port: PORT_HTTP
     ip: "::"
